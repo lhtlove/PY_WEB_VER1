@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOOKMARK</title>
+</head>
+<body>
+    <div id="content">
+        <h1></h1>
+        <ul>
+            {% for youtube in object_list %}
+            <li> <a href="{{ youtube.url }}"> {{ youtube }} </a> </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
