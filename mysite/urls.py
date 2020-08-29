@@ -13,9 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
-from mysite.views import IndexView
+from mysite.views import IndexView, UserCreateView, UserCreateDoneTV
 from bookmark.views import BookmarkLV, BookmarkDV
 from youtube.views import YoutubeLV, YoutubeDV
 from blog.views import PostLV, PostDV
@@ -26,6 +26,11 @@ from django.conf import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', IndexView.as_view(), name='index'),      #정규식, 얘들이 정규식을 읽고 필요한 파일을 불러옴.
+
+    url(r'^accounts/register/$', UserCreateView.as_view(), name='register'),
+    url(r'^accounts/register_done/$', UserCreateDoneTV.as_view(), name='register_done'),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
+
     url(r'^bookmark/$', BookmarkLV.as_view(), name='bookmark_index'),
     url(r'^bookmark/(?P<pk>\d+)/$', BookmarkDV.as_view(), name='detail'),
     url(r'^youtube$', BookmarkLV.as_view(), name='youtube_index'),

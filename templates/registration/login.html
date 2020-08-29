@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SIGN IN</title>
+
+    <style>
+        body {
+          background-color: #2f3742;
+          color: #dfe0e4;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        div {
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+
+            font-size: 30px ;
+        }
+
+        h1 {
+            font-size: 50px ;
+
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+        }
+
+        button {
+            font-size : 30px ;
+
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+        }
+
+        form {
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+        }
+
+        input {
+            color: #fff;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+        }
+    </style>
+</head>
+<body>
+    <h1>REGISTER PAGE</h1>
+
+    <form method="post" action="."> {% csrf_token %}
+        <div>
+            {{ form.username.label_tag }} {{ form.username }}
+        </div>
+        <div>
+            {{ form.password.label_tag }} {{ form.password }}
+        </div>
+
+        <button type="submit"> SIGN IN </button>
+        <input type="hidden" value=" {{ next }} ">
+    </form>
+</body>
+</html>

@@ -128,3 +128,5 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #  ^ 이미지 파일을 만들 경로/위치를 설정했다고 생각하면됨.
+
+LOGIN_REDIRECT_URL = '/'
