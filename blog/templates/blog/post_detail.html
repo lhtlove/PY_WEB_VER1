@@ -45,11 +45,18 @@
         <p><span class="des">Description : </span> {{ object.description }} </p>
         <p><span class="des">Create Date : </span> {{ object.create_date }} </p>
         <p><span class="des">Modify Date : </span> {{ object.modify_date }} </p>
+
+        <a href="{% url 'blog_update' post.id %}"><button> UPDATE </button></a>
+        <a href="{% url 'blog_delete' post.id %}"><button> DELETE </button></a>
+
         <div id="imgdiv">
-            <img src = "{{ object.image.url }}" alt = "{{ object.title }}">
+            {% if object.image %}
+                <img src = "{{ object.image.url }}" alt = "{{ object.title }}">
+            {% endif %}
         </div>
 
         <div id="disqus_thread"></div>
     </div>
+
 </body>
 </html>

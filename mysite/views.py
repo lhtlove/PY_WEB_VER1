@@ -8,6 +8,9 @@ from django.core.urlresolvers import reverse_lazy
 class IndexView(TemplateView) :
     template_name = "index.html"
 
+class DjangoView(TemplateView) :
+    template_name = "django.html"
+
 class UserCreateView(CreateView) :
     template_name = 'registration/register.html'
     form_class = UserCreationForm
@@ -15,4 +18,3 @@ class UserCreateView(CreateView) :
 
 class UserCreateDoneTV(TemplateView) :
     template_name = 'registration/register_done.html'
-    
