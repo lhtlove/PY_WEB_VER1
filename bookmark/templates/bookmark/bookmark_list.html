@@ -1,61 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>BOOKMARK</title>
+{% extends 'base.html' %}
 
-    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
+{% load staticfiles %}
 
-    <style>
-        span {
-            font-size: 70px ;
-            font-family: 'Poor Story', cursive;
-        }
+{% block content %}
 
-        body {
-            background-color: #2f3742;
-            color: #dfe0e4;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
+<div class="container-fluid">
+    <div class="row md">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" contents>
+            <h1><span style="font-size : 70px;">최</span>고로 <span style="font-size : 70px;">애</span>정하는 <span style="font-size : 70px;">유</span>튜브</h1>
 
-        h1 {
-          color: #fff;
-          text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
-        }
+            {% if user.is_active %}
+            <a href="{% url 'bookmark_create' %}"><button>CREATE</button></a>
+            {% endif %}
 
-        ul {
-            display: inline-block ;
-            list-style: none ;
-        }
-
-        li {
-            margin-bottom: 20px ;
-        }
-
-        a {
-            text-decoration: none ;
-
-            color: #fff;
-            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
-        }
-
-        button {
-            color: #fff;
-            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
-        }
-    </style>
-</head>
-<body>
-    <div id="content">
-        <h1><span>최</span>고로 <span>애</span>정하는 <span>유</span>튜브</h1>
-
-        <ul>
-            {% for bookmark in object_list %}
-            <li> <a href= "{% url 'detail' bookmark.id %}" > {{ bookmark }} </a> </li>
-            {% endfor %}
-        </ul>
+            <ul>
+                {% for bookmark in object_list %}
+                <li> <a href= "{% url 'detail' bookmark.id %}" > {{ bookmark }} </a> </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-3"></div>
     </div>
+</div>
 
-    <a href="{% url 'bookmark_create' %}"><button>CREATE</button></a>
-</body>
-</html>
+{% endblock content %}
